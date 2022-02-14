@@ -2,7 +2,8 @@
 date_default_timezone_set('Asia/Jakarta');
 include "functiongojek.php";
 echo "\n   ============".date('[d-m-Y] [H:i:s]')."============\n\n";
-echo "   =      1. VOUCHER GOPAY CASHBACK 10K GOBIZ    =\n";
+echo "   =      1. VOUCHER GOPAY CB 10K      =\n";
+echo "   =      2. VOUCHER GOFOOD 50%     =\n";
 echo "\n   ===============================================\n";
 ulang:
         $nama = nama();
@@ -25,9 +26,9 @@ ulang:
         $uuid = getStr('"resource_owner_id":',',',$verif);
         echo (" access token : ".$token."\n\n");
         save("/sdcard/token.txt",$token);
-        echo ("\n REDEEM VOUCHER CROTT...!!! ");        
+        echo ("\n REDEEM VOUCHER GOPAY ");        
         echo "\n";
-        echo (" Claim voc GOPAY CASHBACK 10K\n");
+        echo (" Claim voc GOJEKINAJA\n");
         echo (" Sabar");
         for($a=1;$a<=3;$a++){
         echo (".");
@@ -40,7 +41,17 @@ ulang:
         goto gofood;
         }else{
         echo ("\n Message: ".$message);
-        }                
+        }
+        gofood:
+        echo ("\n Claim voc GOPAY");
+        echo ("\n Sabar");
+        for($a=1;$a<=3;$a++){
+        echo (".");
+        sleep(10);
+        }
+        $code1 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"GOJEKINAJA"}');
+        $message = fetch_value($code1,'"message":"','"');
+        echo ("\n Message: ".$message);                
         sleep(3);
         $cekvoucher = request('/gopoints/v3/wallet/vouchers?limit=13&page=1', $token);
         $total = fetch_value($cekvoucher,'"total_vouchers":',',');
