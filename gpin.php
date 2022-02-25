@@ -163,8 +163,8 @@ utama:
     echo "
 GACHA KONTOL MEMANG ANJENG MISI BOBA07 BERHASIL
 -----MENU-----: 
-1.BY KEVIN
-2. PILIH 2 KONTOL
+1. CROTKAN 1
+2. CROTIAN 2
 Masukin Pilihan = ";
     $type = trim(fgets(STDIN));
     if ($type == 2) {
@@ -173,7 +173,7 @@ Masukin Pilihan = ";
         Daftar:
             echo "Menu Daftar Akun
 ";
-            echo "Kode 62 untuk ID and 1 untuk US 
+            echo "Kode 62 
 ";
             $proxy = "
 ";
@@ -184,7 +184,7 @@ Masukin Pilihan = ";
 ");
             $register = register($nope);
             if ($register == false) {
-                echo "GANTI NOMER KONTOL
+                echo "GANTI NOMER CUK..!!
 ";
                 gotoDaftar;
             } else {
